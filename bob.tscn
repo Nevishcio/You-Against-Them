@@ -198,6 +198,8 @@ sprite_frames = SubResource("SpriteFrames_mbk3q")
 animation = &"idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_3vyhx")
 
 [node name="Camera2D" type="Camera2D" parent="."]

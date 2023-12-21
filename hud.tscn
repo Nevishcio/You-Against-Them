@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://c266cnttccs2t"]
+[gd_scene load_steps=5 format=3 uid="uid://c266cnttccs2t"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_lqk26"]
+[ext_resource type="Texture2D" uid="uid://d2g2ia4xdndee" path="res://objects.png" id="2_i1ntx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h23v1"]
+atlas = ExtResource("2_i1ntx")
+region = Rect2(416, 0, 52, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sm6xl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h23v1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_lqk26")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, 608)
+scale = Vector2(4.94231, 4.47857)
+sprite_frames = SubResource("SpriteFrames_sm6xl")
