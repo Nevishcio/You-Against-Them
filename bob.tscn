@@ -189,11 +189,11 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyhx"]
 
 [node name="BOB" type="CharacterBody2D"]
-z_index = 7
+z_index = 21
 script = ExtResource("1_ledq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 7
+z_index = 21
 sprite_frames = SubResource("SpriteFrames_mbk3q")
 animation = &"idle_right"
 
