@@ -57,7 +57,7 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		# TODO: damage shader
-		$AnimatedSprite2D.material.set_shader_parametet("intensity", 0,5)
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0,5)
 		if data.health <= 0:
 			data.state = STATES.DEAD
 			# TODO: play death animation & sound
