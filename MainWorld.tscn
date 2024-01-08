@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjej2i3v8sj42"]
+[gd_scene load_steps=10 format=3 uid="uid://bjej2i3v8sj42"]
 
 [ext_resource type="PackedScene" uid="uid://drhaggx7fs7cr" path="res://bob.tscn" id="1_w5chu"]
 [ext_resource type="PackedScene" uid="uid://c266cnttccs2t" path="res://hud.tscn" id="2_lyiit"]
 [ext_resource type="Texture2D" uid="uid://cnv0q3uf7g0jf" path="res://Overworld.png" id="3_cqarl"]
+[ext_resource type="Script" path="res://SecretEntrance1.gd" id="4_tm8ow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kvfr"]
 texture = ExtResource("3_cqarl")
@@ -6586,9 +6587,12 @@ texture = ExtResource("3_cqarl")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pc2kw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af760"]
+size = Vector2(32, 48)
+
 [node name="BeachedOnAnIsland" type="Node2D"]
 
-[node name="BOB" parent="." instance=ExtResource("1_w5chu")]
+[node name="BOB" parent="." groups=["Player"] instance=ExtResource("1_w5chu")]
 z_index = 4
 position = Vector2(1608, 600)
 
@@ -6629,3 +6633,13 @@ layer_0/tile_data = PackedInt32Array(1310707, 786432, 10, 3473404, 786432, 10, -
 tile_set = SubResource("TileSet_se1jr")
 format = 2
 layer_0/tile_data = PackedInt32Array(1572868, 327680, 14, 1572869, 327680, 14, 1572870, 327680, 14, 1572871, 327680, 14, 1507332, 327680, 12, 1507333, 327680, 12, 1507334, 327680, 12, 1441795, 262144, 11, 1441796, 327680, 11, 1441797, 327680, 11, 1441798, 327680, 11, 720899, 262144, 10, 786435, 262144, 10, 851971, 262144, 10, 917507, 262144, 10, 983043, 262144, 10, 1048579, 262144, 10, 1114115, 262144, 10, 1179651, 262144, 10, 1245187, 262144, 10, 1310723, 262144, 10, 1376259, 262144, 10, 720903, 393216, 10, 786439, 393216, 10, 851975, 393216, 10, 917511, 393216, 10, 983047, 393216, 10, 1048583, 393216, 10, 1114119, 393216, 10, 1179655, 393216, 10, 1245191, 393216, 10, 1310727, 393216, 10, 1376263, 393216, 10, 655363, 0, 11, 655364, 65536, 11, 655367, 131072, 11, 655365, 65536, 11, 655366, 65536, 11, 720900, 327680, 10, 786436, 327680, 10, 851972, 327680, 10, 917508, 327680, 10, 983044, 327680, 10, 1048580, 327680, 10, 1114116, 327680, 10, 1179652, 327680, 10, 1245188, 327680, 10, 1310724, 327680, 10, 1376260, 327680, 10, 720901, 327680, 10, 786437, 327680, 10, 851973, 327680, 10, 917509, 327680, 10, 983045, 327680, 10, 1048581, 327680, 10, 1114117, 327680, 10, 1179653, 327680, 10, 1245189, 327680, 10, 1310725, 327680, 10, 1376261, 327680, 10, 720902, 327680, 10, 786438, 327680, 10, 851974, 327680, 10, 917510, 327680, 10, 983046, 327680, 10, 1048582, 327680, 10, 1114118, 327680, 10, 1179654, 327680, 10, 1245190, 327680, 10, 1310726, 327680, 10, 1376262, 327680, 10, 1441799, 393216, 11, 1507335, 327680, 13, 1507331, 262144, 12, 1572867, 524288, 15)
+
+[node name="SecretEntrance1" type="Area2D" parent="."]
+script = ExtResource("4_tm8ow")
+next_level = "underwater_secret"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretEntrance1"]
+position = Vector2(1504, 120)
+shape = SubResource("RectangleShape2D_af760")
+
+[connection signal="body_entered" from="SecretEntrance1" to="SecretEntrance1" method="_on_body_entered"]
