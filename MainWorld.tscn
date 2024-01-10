@@ -6592,7 +6592,7 @@ size = Vector2(32, 48)
 
 [node name="BeachedOnAnIsland" type="Node2D"]
 
-[node name="BOB" parent="." groups=["Player"] instance=ExtResource("1_w5chu")]
+[node name="BOB" parent="." instance=ExtResource("1_w5chu")]
 z_index = 4
 position = Vector2(1608, 600)
 

@@ -188,7 +188,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyhx"]
 
-[node name="BOB" type="CharacterBody2D"]
+[node name="BOB" type="CharacterBody2D" groups=["Player"]]
 z_index = 21
 script = ExtResource("1_ledq8")
 
