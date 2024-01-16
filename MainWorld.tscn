@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjej2i3v8sj42"]
+[gd_scene load_steps=12 format=3 uid="uid://bjej2i3v8sj42"]
 
 [ext_resource type="PackedScene" uid="uid://drhaggx7fs7cr" path="res://bob.tscn" id="1_w5chu"]
 [ext_resource type="PackedScene" uid="uid://c266cnttccs2t" path="res://hud.tscn" id="2_lyiit"]
 [ext_resource type="Texture2D" uid="uid://cnv0q3uf7g0jf" path="res://Overworld.png" id="3_cqarl"]
 [ext_resource type="Script" path="res://SecretEntrance1.gd" id="4_tm8ow"]
+[ext_resource type="Script" path="res://Area2D.gd" id="5_66yj7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kvfr"]
 texture = ExtResource("3_cqarl")
@@ -6590,6 +6591,9 @@ sources/0 = SubResource("TileSetAtlasSource_pc2kw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af760"]
 size = Vector2(32, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmwl1"]
+size = Vector2(16, 34)
+
 [node name="BeachedOnAnIsland" type="Node2D"]
 
 [node name="BOB" parent="." instance=ExtResource("1_w5chu")]
@@ -6636,10 +6640,22 @@ layer_0/tile_data = PackedInt32Array(1572868, 327680, 14, 1572869, 327680, 14, 1
 
 [node name="SecretEntrance1" type="Area2D" parent="."]
 script = ExtResource("4_tm8ow")
-next_level = "underwater_secret"
+next_level = "dev_room"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecretEntrance1"]
 position = Vector2(1504, 120)
 shape = SubResource("RectangleShape2D_af760")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NextLevel" type="Area2D" parent="."]
+script = ExtResource("5_66yj7")
+next_level = "underwater_secret"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+z_index = 21
+position = Vector2(1960, 383)
+shape = SubResource("RectangleShape2D_vmwl1")
+
 [connection signal="body_entered" from="SecretEntrance1" to="SecretEntrance1" method="_on_body_entered"]
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

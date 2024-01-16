@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0537cccxbpso"]
+[gd_scene load_steps=11 format=3 uid="uid://b0537cccxbpso"]
 
 [ext_resource type="PackedScene" uid="uid://drhaggx7fs7cr" path="res://bob.tscn" id="1_1mp88"]
 [ext_resource type="PackedScene" uid="uid://dx1co4wsiaifw" path="res://music_quote.tscn" id="1_5vulr"]
 [ext_resource type="Texture2D" uid="uid://dmrj8mu2gg4ud" path="res://Inner.png" id="2_3f5r4"]
 [ext_resource type="Script" path="res://Exit.gd" id="4_f6rbw"]
+[ext_resource type="AudioStream" uid="uid://dp2e3dxvs3rc1" path="res://B.O.B. Theme.mp3" id="5_fe67c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3hkl"]
 texture = ExtResource("2_3f5r4")
@@ -1715,5 +1716,10 @@ next_level = "banana_manana"
 z_index = 3
 position = Vector2(256, 56)
 shape = SubResource("RectangleShape2D_g82gq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fe67c")
+volume_db = 1.0
+autoplay = true
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
