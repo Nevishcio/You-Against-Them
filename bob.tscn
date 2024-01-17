@@ -203,4 +203,4 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_3vyhx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4, 4)

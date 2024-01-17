@@ -139,6 +139,5 @@ func update_animation(direction):
 				a_name = "idle_up"
 			elif look_direction.y > 0:
 				a_name = "idle_down"
-		
 		if $AnimatedSprite2D.animation != a_name:
 			$AnimatedSprite2D.animation = a_name
